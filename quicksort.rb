@@ -9,18 +9,7 @@ class Array
 	# 基準値の決め方
 	# 今回は配列の一番最後の要素を基準値とする
 	def pivot
-		return self[self.length-1]
-	end
-
-	# 配列を分割する
-	def devide(a, b)
-		(0...self.length-1).each do |i|
-			if self[i] <= pivot
-				a.push(self[i])
-			else
-				b.push(self[i])
-			end
-		end
+		return pop
 	end
 
 	def quickSort
@@ -31,11 +20,10 @@ class Array
 		pivot = self.pivot
 
 		left = []; right = []
-		self.devide(left, right)
+		# 配列を分割する
+		left, right = self.partition { |i| i <= pivot }
 
-		left = left.quickSort
-		right = right.quickSort
-		return left + [pivot] + right
+		return left.quickSort + [pivot] + right.quickSort
 	end
 end
 
