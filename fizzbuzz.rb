@@ -1,14 +1,9 @@
 class Fixnum
 	def fizzbuzz
-		if self % 3 == 0 && self % 5 == 0
-			return 'FizzBuzz'
-		elsif self % 3 == 0
-			return 'Fizz'
-		elsif self % 5 == 0
-			return 'Buzz'
-		else
-			return self
-		end
+		return 'FizzBuzz' if self % 15 == 0
+		return 'Fizz' if self % 3 == 0
+		return 'Buzz' if self % 5 == 0
+		self
 	end
 end
 

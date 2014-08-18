@@ -5,14 +5,14 @@ q = [5,3,6,1,3,2,8]
 
 class Array
 	def bubbleSort
-		(0...self.length).each do |i|
-			(self.length-1).downto(i) do |j|
+		(0...length).each do |i|
+			(length-1).downto(i) do |j|
 				if self[j] < self[j-1]
 					self[j], self[j-1] = self[j-1], self[j]
 				end
 			end
 		end
-		return self
+		self
 	end
 end
 

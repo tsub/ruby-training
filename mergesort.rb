@@ -35,8 +35,8 @@ class Array
 
 	def mergeSort
 		if self.length > 1
-			m = self.length / 2
-			n = self.length - m
+			m = length / 2
+			n = length - m
 
 			left = []; right = []
 
@@ -50,8 +50,8 @@ class Array
 
 			left.mergeSort
 			right.mergeSort
-			self.merge(left, right)
-			return self
+			merge(left, right)
+			self
 		end
 	end
 end
