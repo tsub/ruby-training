@@ -13,7 +13,7 @@ class Array
 	end
 
 	# 配列を分割する
-	def partition(a, b)
+	def devide(a, b)
 		(0...self.length-1).each do |i|
 			if self[i] <= pivot
 				a.push(self[i])
@@ -31,7 +31,7 @@ class Array
 		pivot = self.pivot
 
 		left = []; right = []
-		self.partition(left, right)
+		self.devide(left, right)
 
 		left = left.quickSort
 		right = right.quickSort

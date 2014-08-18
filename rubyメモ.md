@@ -23,6 +23,10 @@
 	clone(object) : objectのコピーを作成して返す
 	dup(object) : objectのコピーを作成して返す
 	
+> Enumerable
+
+	inject {|memo, item| block} : blockに要素1, 要素2を順に渡し、blockが最後に返した値を返す
+
 ### 文法
 
 > case文
