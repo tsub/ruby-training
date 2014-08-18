@@ -12,6 +12,8 @@
 	delete : 配列の最後の要素を削除する
 	delete_at(n) : n番目の要素を削除する
 	shift : 配列の最初の要素を削除してその値を返す
+	find_index(obj) : 配列からobjと一致する要素を返す
+	insert(index, obj) : 配列のindex番目にobjを挿入する
 
 > Stringクラス
 

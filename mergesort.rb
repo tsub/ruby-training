@@ -40,11 +40,11 @@ class Array
 
 			left = []; right = []
 
-			(0...m).each do |i|
+			(0...n).each do |i|
 				left.push(self[i])
 			end
 
-			(0...n).each do |i|
+			(0...m).each do |i|
 				right.push(self[m+i])
 			end
 
