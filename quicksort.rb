@@ -5,36 +5,39 @@
 
 q = [6,1,3,7,4,2,3,9,10,14,16,12,13,11]
 
-# 基準値の決め方
-# 今回は配列の一番最後の要素を基準値とする
-def pivot(seq)
-	return seq[seq.length-1]
-end
-
-# クイックソートを行う部分
-def quickSort(seq)
-	if seq.empty?
-		return seq
+class Array
+	# 基準値の決め方
+	# 今回は配列の一番最後の要素を基準値とする
+	def pivot
+		return self[self.length-1]
 	end
 
-	# p seq
-	pivot = pivot(seq)
-
 	# 配列を分割する
-	left = []
-	right = []
-	(0...seq.length-1).each do |i|
-		if seq[i] <= pivot
-			left.push(seq[i])
-		else
-			right.push(seq[i])
+	def partition(a, b)
+		(0...self.length-1).each do |i|
+			if self[i] <= pivot
+				a.push(self[i])
+			else
+				b.push(self[i])
+			end
 		end
 	end
 
-	left = quickSort(left)
-	right = quickSort(right)
-	return left + [pivot] + right
+	def quickSort
+		if self.empty?
+			return self
+		end
+
+		pivot = self.pivot
+
+		left = []; right = []
+		self.partition(left, right)
+
+		left = left.quickSort
+		right = right.quickSort
+		return left + [pivot] + right
+	end
 end
 
 p q
-p quickSort(q)
+p q.quickSort
