@@ -1,16 +1,17 @@
-q = [5,3,6,1,3,2,8]
-length = q.length - 1
+p q = [5,3,6,1,3,2,8]
 
-print q
-
-for i in 0...length
-	length.downto(i) do |j|
-		if q[j] < q[j-1]
-			tmp = q[j]
-			q[j] = q[j-1]
-			q[j-1] = tmp
+def bubbleSort(seq)
+	length = seq.length-1
+	(0..length).each do |i|
+		length.downto(i) do |j|
+			if seq[j] < seq[j-1]
+				tmp = seq[j]
+				seq[j] = seq[j-1]
+				seq[j-1] = tmp
+			end
 		end
 	end
+	return seq
 end
 
-print q
+p bubbleSort(q)
