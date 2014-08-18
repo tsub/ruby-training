@@ -1,15 +1,17 @@
-def fizzbuzz(st, en)
-	(st..en).each do |i|
-		if i % 3 == 0 && i % 5 == 0
-			puts 'FizzBuzz'
-		elsif i % 3 == 0
-			puts 'Fizz'
-		elsif i % 5 == 0
-			puts 'Buzz'
-		else
-			puts i
-		end
+def fizzbuzz(num)
+	if num % 3 == 0 && num % 5 == 0
+		return 'FizzBuzz'
+	elsif num % 3 == 0
+		return 'Fizz'
+	elsif num % 5 == 0
+		return 'Buzz'
+	else
+		return num
 	end
 end
 
-fizzbuzz(1, 100)
+fb = Array.new
+(1..100).each do |i|
+	fb.push(fizzbuzz(i))
+end
+puts fb
