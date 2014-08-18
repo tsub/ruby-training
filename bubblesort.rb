@@ -1,4 +1,4 @@
-p q = [5,3,6,1,3,2,8]
+q = [5,3,6,1,3,2,8]
 
 def bubbleSort(seq)
 	(0..(seq.length-1)).each do |i|
@@ -11,4 +11,5 @@ def bubbleSort(seq)
 	return seq
 end
 
+p q
 p bubbleSort(q)
