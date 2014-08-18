@@ -13,7 +13,7 @@ end
 
 # クイックソートを行う部分
 def quickSort(seq)
-	if seq.length == 0
+	if seq.empty?
 		return seq
 	end
 
@@ -21,8 +21,8 @@ def quickSort(seq)
 	pivot = pivot(seq)
 
 	# 配列を分割する
-	left = Array.new
-	right = Array.new
+	left = []
+	right = []
 	(0...seq.length-1).each do |i|
 		if seq[i] <= pivot
 			left.push(seq[i])

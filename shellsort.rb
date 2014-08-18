@@ -1,24 +1,30 @@
+# シェルソート
+# 配列を分割しながら単純挿入ソートを行っていく
+
 q = [7,3,4,2,1,5,8]
 
-def shellSort(seq, gap)
-	(0..seq.length).each do
-		(gap...seq.length).each do |j|
-			(j-gap).downto(0) do |k|
-				if seq[k] <= seq[k+gap]
-					break
-				else
-					seq[k], seq[k+gap] = seq[k+gap], seq[k]
+class Array
+	def shellSort
+		gap = self.length / 2
+		(0..self.length).each do
+			(gap...self.length).each do |j|
+				(j-gap).downto(0) do |k|
+					if self[k] <= self[k+gap]
+						break
+					else
+						self[k], self[k+gap] = self[k+gap], self[k]
+					end
 				end
 			end
-		end
 
-		gap /= 2
-		if gap == 0
-			break
+			gap /= 2
+			if gap == 0
+				break
+			end
 		end
+		return self
 	end
-	return seq
 end
 
 p q
-p shellSort(q, q.length/2)
+p q.shellSort
