@@ -3,6 +3,8 @@
 # 分割したそれぞれの配列で再び基準値を決め、配列を2分割していく
 # 分割できなくなるまで分割した要素をすべて繋ぎあわせたものがソート後の配列
 
+q = [6,1,3,7,4,2,3,9,10,14,16,12,13,11]
+
 # 基準値の決め方
 # 今回は配列の一番最後の要素を基準値とする
 def pivot(seq)
@@ -10,17 +12,17 @@ def pivot(seq)
 end
 
 # クイックソートを行う部分
-def quicksort(seq)
+def quickSort(seq)
 	if seq.length == 0
 		return seq
 	end
 
-	p seq
+	# p seq
 	pivot = pivot(seq)
 
 	# 配列を分割する
-	right = Array.new
 	left = Array.new
+	right = Array.new
 	(0...seq.length-1).each do |i|
 		if seq[i] <= pivot
 			left.push(seq[i])
@@ -29,10 +31,10 @@ def quicksort(seq)
 		end
 	end
 
-	left = quicksort(left)
-	right = quicksort(right)
+	left = quickSort(left)
+	right = quickSort(right)
 	return left + [pivot] + right
 end
 
-q = [6,1,3,7,4,2,3,9,10,14,16,12,13,11]
-p quicksort(q)
+p q
+p quickSort(q)
