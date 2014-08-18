@@ -1,17 +1,17 @@
-def fizzbuzz(num)
-	if num % 3 == 0 && num % 5 == 0
-		return 'FizzBuzz'
-	elsif num % 3 == 0
-		return 'Fizz'
-	elsif num % 5 == 0
-		return 'Buzz'
-	else
-		return num
+class Fixnum
+	def fizzbuzz
+		if self % 3 == 0 && self % 5 == 0
+			return 'FizzBuzz'
+		elsif self % 3 == 0
+			return 'Fizz'
+		elsif self % 5 == 0
+			return 'Buzz'
+		else
+			return self
+		end
 	end
 end
 
-fb = Array.new
-(1..100).each do |i|
-	fb.push(fizzbuzz(i))
+(1..100).map {|i| i.fizzbuzz}.each do |i|
+	puts i
 end
-puts fb
