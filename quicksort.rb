@@ -6,13 +6,13 @@
 q = [6,1,3,7,4,2,3,9,10,14,16,12,13,11]
 
 class Array
-	def quick_sort
-		return self if empty?
+  def quick_sort
+    return self if empty?
 
-		pivot = pop
-		left, right = partition { |i| i <= pivot }.map { |i| i.quick_sort }
-		return left + [pivot] + right
-	end
+    pivot = pop
+    left, right = partition { |i| i <= pivot }.map { |i| i.quick_sort }
+    return left + [pivot] + right
+  end
 end
 
 p q

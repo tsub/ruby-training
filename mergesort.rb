@@ -5,29 +5,29 @@
 q = [2,3,4,7,1,9,8,10,14,12,16,15,18]
 
 class Array
-	def merge(left, right)
-		res = []
-		until left.empty? && right.empty?
-			res << case
-				when left.empty? then right.shift
-				when right.empty? then left.shift
-				when left.first < right.first then left.shift
-				else right.shift
-				end
-		end
-		return res
-	end
+  def merge(left, right)
+    res = []
+    until left.empty? && right.empty?
+      res << case
+        when left.empty? then right.shift
+        when right.empty? then left.shift
+        when left.first < right.first then left.shift
+        else right.shift
+        end
+    end
+    return res
+  end
 
-	def half
-		return slice(0...length / 2), slice(length / 2..-1)
-	end
+  def half
+    return slice(0...length / 2), slice(length / 2..-1)
+  end
 
-	def merge_sort
-		return self if length <= 1
+  def merge_sort
+    return self if length <= 1
 
-		left, right = half.map { |i| i.merge_sort }
-		merge(left, right)
-	end
+    left, right = half.map { |i| i.merge_sort }
+    merge(left, right)
+  end
 end
 
 p q
