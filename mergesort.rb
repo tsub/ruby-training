@@ -6,55 +6,28 @@ q = [2,3,4,7,1,9,8,10,14,12,16,15,18]
 
 class Array
 	def merge(left, right)
-		i = 0; j = 0
-		while i < left.length || j < right.length
-			if j >= right.length || ( i < left.length && left[i] < right[j] )
-				self[i+j] = left[i]
-				i += 1
+		res = []
+		until left.empty? && right.empty?
+			if left.empty?
+				res << right.shift
+			elsif right.empty?
+				res << left.shift
+			elsif left.first < right.first
+				res << left.shift
 			else
-				self[i+j] = right[j]
-				j += 1
+				res << right.shift
 			end
 		end
-
-		# (1...self.length).each do |i|
-		# until left.empty? && right.empty?
-		# 	self <<
-		# 	case
-		# 	when left.empty?
-		# 		right.shift
-		# 	when right.empty?
-		# 		left.shift
-		# 	when left.first < right.first
-		# 		left.shift
-		# 	else
-		# 		right.shift
-		# 	end
-		# end
+		res
 	end
 
-	def mergeSort
-		if self.length > 1
-			m = length / 2
-			n = length - m
+	def merge_sort
+		return self if length <= 1
 
-			left = []; right = []
-
-			(0...n).each do |i|
-				left.push(self[i])
-			end
-
-			(0...m).each do |i|
-				right.push(self[m+i])
-			end
-
-			left.mergeSort
-			right.mergeSort
-			merge(left, right)
-			self
-		end
+		left, right = [slice(0...length/2), slice(length/2..-1)].map { |i| i.merge_sort }
+		merge(left, right)
 	end
 end
 
 p q
-p q.mergeSort
+p q.merge_sort

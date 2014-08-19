@@ -6,19 +6,14 @@
 q = [6,1,3,7,4,2,3,9,10,14,16,12,13,11]
 
 class Array
-	def quickSort
+	def quick_sort
 		return self if empty?
 
-		# 今回は配列の一番最後の要素を基準値とする
 		pivot = pop
-
-		# 配列を分割する
-		left = []; right = []
-		left, right = partition { |i| i <= pivot }
-
-		left.quickSort + [pivot] + right.quickSort
+		left, right = partition { |i| i <= pivot }.map { |i| i.quick_sort }
+		left + [pivot] + right
 	end
 end
 
 p q
-p q.quickSort
+p q.quick_sort

@@ -7,6 +7,6 @@ class Fixnum
 	end
 end
 
-(1..100).map {|i| i.fizzbuzz}.each do |i|
+(1..100).map { |i| i.fizzbuzz }.each do |i|
 	puts i
 end

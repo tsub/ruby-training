@@ -4,7 +4,7 @@
 q = [5,3,6,1,3,2,8]
 
 class Array
-	def bubbleSort
+	def bubble_sort
 		(0...length).each do |i|
 			(length-1).downto(i) do |j|
 				if self[j] < self[j-1]
@@ -17,4 +17,4 @@ class Array
 end
 
 p q
-p q.bubbleSort
+p q.bubble_sort
