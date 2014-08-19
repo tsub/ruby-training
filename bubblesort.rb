@@ -6,13 +6,11 @@ q = [5,3,6,1,3,2,8]
 class Array
 	def bubble_sort
 		(0...length).each do |i|
-			(length-1).downto(i) do |j|
-				if self[j] < self[j-1]
-					self[j], self[j-1] = self[j-1], self[j]
-				end
+			(length - 1).downto(i) do |j|
+				self[j], self[j - 1] = self[j - 1], self[j] if self[j] < self[j - 1]
 			end
 		end
-		self
+		return self
 	end
 end
 

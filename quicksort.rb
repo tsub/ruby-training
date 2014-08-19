@@ -11,7 +11,7 @@ class Array
 
 		pivot = pop
 		left, right = partition { |i| i <= pivot }.map { |i| i.quick_sort }
-		left + [pivot] + right
+		return left + [pivot] + right
 	end
 end
 
